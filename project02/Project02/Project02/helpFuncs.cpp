@@ -51,5 +51,6 @@ void reshape(GLsizei w, GLsizei h)
 
 	windowWidth = w;
 	windowHeight = h;
+	Mouse::resetPoints();
 	Mouse::recover();
 }

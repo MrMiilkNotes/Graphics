@@ -26,7 +26,7 @@ enum Shapes_ {
 	Line_ = 0,
 	Rectangle_,
 	Circle_,
-	Triangle_,
+	Polygon_,
 	Ellipse_,
 };
 

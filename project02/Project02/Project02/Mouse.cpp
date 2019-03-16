@@ -16,7 +16,22 @@ void Mouse::redraw()
 				}
 			}
 		}
+		else if (Drawer::is_more_point_shape(iter->first)) {
+			Drawer::points_t x_, y_;
+			for (auto obj : (iter->second)) {
+				if (obj.size() >= 3) {
+					x_.clear();
+					y_.clear();
+					for (auto p : obj) {
+						x_.push_back(p.first);
+						y_.push_back(p.second);
+					}
+					Drawer::draw_shape((iter->first), x_, y_);
+				}
+			}
+		}
 	}
+	Drawer::resetPoints();
 	glFlush();
 }
 
@@ -64,11 +79,11 @@ void Mouse::mouse_line()
 	glutMotionFunc(Mouse::line_move);
 }
 
-void Mouse::mouse_triangle()
+void Mouse::mouse_moreTriangle()
 {
 	Mouse::resetPoints();
-	glutMouseFunc(Mouse::triangle);
-	glutMotionFunc(Mouse::triangle_move);
+	glutMouseFunc(Mouse::moreTriangle);
+	glutMotionFunc(Mouse::moreTriangle_move);
 }
 
 void Mouse::rectangle(int button, int state, int x, int y)
@@ -101,12 +116,12 @@ void Mouse::line_move(int x, int y)
 	Drawer::two_point_shape_d("line", x, y);
 }
 
-void Mouse::triangle(int button, int state, int x, int y)
+void Mouse::moreTriangle(int button, int state, int x, int y)
 {
-	Drawer::three_point_shape("triangle", button, state, x, y);
+	Drawer::more_point_shape("moreTriangle", button, state, x, y);
 }
 
-void Mouse::triangle_move(int x, int y)
+void Mouse::moreTriangle_move(int x, int y)
 {
-	Drawer::three_point_shape_d("triangle", x, y);
+	Drawer::more_point_shape_d("moreTriangle", x, y);
 }

@@ -4,6 +4,7 @@
 
 void Menu::main_menu(int id)
 {
+	Mouse::resetPoints();
 	switch (id)
 	{
 	case DrawMode:
@@ -23,6 +24,7 @@ void Menu::main_menu(int id)
 
 void Menu::mode_menu(int id)
 {
+	Mouse::resetPoints();
 	switch (id)
 	{
 	case Pen:
@@ -65,6 +67,7 @@ void Menu::colors_menu(int id)
 
 void Menu::shapes_menu(int id)
 {
+	Mouse::resetPoints();
 	switch (id)
 	{
 	case Line_:
@@ -76,8 +79,8 @@ void Menu::shapes_menu(int id)
 	case Circle_:
 		Mouse::mouse_circle();
 		break;
-	case Triangle_:
-		Mouse::mouse_triangle();
+	case Polygon_:
+		Mouse::mouse_moreTriangle();
 		break;
 	case Ellipse_:
 		break;
@@ -98,7 +101,7 @@ void Menu::set()
 	glutAddMenuEntry("Line", 0);
 	glutAddMenuEntry("Rectangle", 1);
 	glutAddMenuEntry("Circle", 2);
-	glutAddMenuEntry("Triangle", 3);
+	glutAddMenuEntry("Polygon", 3);
 	glutAddMenuEntry("Ellipse", 4);
 
 	int mo_menu = glutCreateMenu(this->mode_menu);

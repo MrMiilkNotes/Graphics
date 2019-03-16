@@ -27,7 +27,7 @@ public:
 	static void mouse_rectangle();
 	static void mouse_circle();
 	static void mouse_line();
-	static void mouse_triangle();
+	static void mouse_moreTriangle();
 private:
 	Mouse();
 
@@ -38,8 +38,8 @@ private:
 	static void circle_move(int x, int y);
 	static void line(int button, int state, int x, int y);
 	static void line_move(int x, int y);
-	static void triangle(int button, int state, int x, int y);
-	static void triangle_move(int x, int y);
+	static void moreTriangle(int button, int state, int x, int y);
+	static void moreTriangle_move(int x, int y);
 
 public:
 	/*static Recorder recoder;
