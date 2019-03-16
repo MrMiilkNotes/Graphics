@@ -1,4 +1,8 @@
 #pragma once
+#include<utility>
+#include<vector>
+#include<map>
+#include<string>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -6,18 +10,38 @@
 #endif
 
 #include"BasicSettings.h"
+#include"Recorder.h"
+#include"Drawer.h"
 
 class Mouse
 {
 public:
+	typedef std::pair<float, float> point_t;
+	typedef std::vector<point_t> shape;
+	typedef typename std::map<std::string, std::vector<shape>> record_t;
+public:
+	static void resetPoints();
+	static void clear();
+	static void debugClear();
+	static void recover();
+	static void mouse_rectangle();
+	static void mouse_circle();
+	static void mouse_line();
+	static void mouse_triangle();
+private:
 	Mouse();
 
-	static void resetPoints();
+	static void redraw();
 	static void rectangle(int button, int state, int x, int y);
 	static void rectangle_move(int x, int y);
-public:
-	static float x1, x2, x3;
-	static float y1, y2, y3;
+	static void circle(int button, int state, int x, int y);
+	static void circle_move(int x, int y);
+	static void line(int button, int state, int x, int y);
+	static void line_move(int x, int y);
+	static void triangle(int button, int state, int x, int y);
+	static void triangle_move(int x, int y);
 
-	static int rectangle_point_count;
+public:
+	/*static Recorder recoder;
+	static Drawer drawer;*/
 };

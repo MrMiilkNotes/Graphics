@@ -7,6 +7,7 @@
 #endif
 
 #include"BasicSettings.h"
+#include"Mouse.h"
 
 void init()
 {
@@ -50,4 +51,5 @@ void reshape(GLsizei w, GLsizei h)
 
 	windowWidth = w;
 	windowHeight = h;
+	Mouse::recover();
 }

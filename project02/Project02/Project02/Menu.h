@@ -7,8 +7,7 @@
 #else
 #include <GL/glut.h>
 #endif
-
-#include"Handler.h"
+#include"Mouse.h"
 
 enum MainMenu_ {
 	DrawMode,
@@ -51,7 +50,5 @@ private:
 	void set();
 	int main_idx;
 	int second_idx;
-private:
-	static Handler handler;
 };
 

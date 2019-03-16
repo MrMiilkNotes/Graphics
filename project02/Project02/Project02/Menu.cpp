@@ -13,13 +13,13 @@ void Menu::main_menu(int id)
 	case Colors:
 		break;
 	case Clear:
+		Mouse::clear();
 		break;
 	default:
 		break;
 	}
 	glutPostRedisplay();
 }
-
 
 void Menu::mode_menu(int id)
 {
@@ -38,17 +38,28 @@ void Menu::mode_menu(int id)
 
 void Menu::colors_menu(int id)
 {
+	Mouse::resetPoints();
 	switch (id)
 	{
 	case Red:
-		break;
+		Drawer::draw_color[0] = 1.0f;
+		Drawer::draw_color[1] = 0.0f;
+		Drawer::draw_color[2] = 0.0f;
+ 		break;
 	case Blue:
+		Drawer::draw_color[0] = 0.0f;
+		Drawer::draw_color[1] = 0.0f;
+		Drawer::draw_color[2] = 0.0f;
 		break;
 	case Green:
+		Drawer::draw_color[0] = 0.0f;
+		Drawer::draw_color[1] = 0.0f;
+		Drawer::draw_color[2] = 1.0f;
 		break;
 	default:
 		break;
 	}
+	//Mouse::debugClear();
 	glutPostRedisplay();
 }
 
@@ -57,13 +68,16 @@ void Menu::shapes_menu(int id)
 	switch (id)
 	{
 	case Line_:
+		Mouse::mouse_line();
 		break;
 	case Rectangle_:
-		handler.mouse_rectangle();
+		Mouse::mouse_rectangle();
 		break;
 	case Circle_:
+		Mouse::mouse_circle();
 		break;
 	case Triangle_:
+		Mouse::mouse_triangle();
 		break;
 	case Ellipse_:
 		break;
@@ -102,6 +116,5 @@ void Menu::set()
 
 Menu::Menu()
 {
-	handler = Handler::getHandler();
 	this->set();
 }

@@ -15,5 +15,8 @@ private:
 	Handler();
 public:
 	static Handler& getHandler();
+	static void Clear();
 	static void mouse_rectangle();
+	static void mouse_circle();
+	static void mouse_line();
 };
